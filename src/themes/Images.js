@@ -1,0 +1,17 @@
+export default {
+  user_name: require("../assets/Images/UsernameIcon.png"),
+  password: require("../assets/Images/PasswordIcon.png"),
+  img_signup: require("../assets/Images/img_signup.png"),
+  img_categories: require("../assets/Images/hoa_01.jpg"),
+  categories_accessories: require("../assets/Images/categories_accessories.png"),
+  categories_bottom: require("../assets/Images/lohoa_01.jpg"),
+  categories_top: require("../assets/Images/vongtay_01.jpg"),
+  categories_shoes: require("../assets/Images/lohoa_02.jpg"),
+  categories_sweemwear: require("../assets/Images/categories_sweemwear.png"),
+  shoes1: require("../assets/Images/shoes1.png"),
+  shoes2: require("../assets/Images/shoes2.png"),
+  shoes3: require("../assets/Images/shoes3.png"),
+  shoes4: require("../assets/Images/shoes4.png"),
+  bg: require("../assets/Images/bg.png"),
+  slider_details: require("../assets/Images/slider_details.png"),
+};

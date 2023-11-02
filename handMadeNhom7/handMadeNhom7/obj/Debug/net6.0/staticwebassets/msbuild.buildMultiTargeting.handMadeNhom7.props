@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\handMadeNhom7.props" />
+</Project>
