@@ -10,18 +10,18 @@ import {
   Alert,
 } from "react-native";
 import axios from "axios";
-import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { ScrollView } from "react-native-gesture-handler";
 import { GETPROFILEDATA, GET_ORDER_WITH_PAGE } from "../../../API/api";
 import { formatNumberWithDot } from "../../../Utils/Utils";
 import { UPDATE_USER, DELETE_USER } from "../../../API/api";
 import Loading from "../Loading/Loading";
+import Images from "../../themes/Images";
 
 const ProfileScreen = ({ navigation, route }) => {
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [fullname, setFullname] = useState("Bùi Chi Vu");
+  const [email, setEmail] = useState("buivuisme@gmail.com");
+  const [phone, setPhone] = useState("0975835652");
   const [rank, setRank] = useState("Member");
   const [userType, setUserType] = useState(0);
   const [orderData, setOrderData] = useState([]);
@@ -78,17 +78,6 @@ const ProfileScreen = ({ navigation, route }) => {
     });
     setPriceSetRank(tmp);
   }, [orderData.length]);
-  useEffect(() => {
-    {
-      if (priceSetRank >= 1000000 && priceSetRank < 10000000) {
-        setRank("VIP");
-      } else if (priceSetRank < 1000000) {
-        setRank("Member");
-      } else if (priceSetRank >= 10000000) {
-        setRank("VVIP");
-      }
-    }
-  }, [priceSetRank]);
 
   function cancelName() {
     setName(fullname);
@@ -118,7 +107,6 @@ const ProfileScreen = ({ navigation, route }) => {
         Alert.alert("Thông báo", "Thay đổi thành công");
         setIsReLoad(!isReload);
         setIsLoading(false);
-        // navigation.navigate("SignIn")
       })
       .catch((err) => {
         setIsLoading(false);
@@ -303,7 +291,7 @@ const ProfileScreen = ({ navigation, route }) => {
                       style={[
                         styles.changePass,
                         {
-                          backgroundColor: "green",
+                          backgroundColor: "#01ab9d",
                           padding: 8,
                           borderRadius: 12,
                           width: "45%",
@@ -324,7 +312,7 @@ const ProfileScreen = ({ navigation, route }) => {
                       style={[
                         styles.changePass,
                         {
-                          backgroundColor: "green",
+                          backgroundColor: "#01ab9d",
                           padding: 8,
                           borderRadius: 12,
                           marginLeft: 20,
@@ -343,71 +331,9 @@ const ProfileScreen = ({ navigation, route }) => {
                       </Text>
                     </TouchableOpacity>
                   </View>
+                </View>
+              </View>
 
-                  {userType == 1 ? (
-                    <View style={{ flexDirection: "row", marginTop: 20 }}>
-                      <TouchableOpacity
-                        style={[
-                          styles.changePass,
-                          {
-                            backgroundColor: "green",
-                            padding: 8,
-                            borderRadius: 12,
-                            width: "45%",
-                          },
-                        ]}
-                        onPress={() =>
-                          navigation.navigate("OrderManagerScreen")
-                        }
-                      >
-                        <Text
-                          style={[
-                            styles.changePassText,
-                            { color: "#fff", textAlign: "center" },
-                          ]}
-                        >
-                          Quản lý đơn hàng
-                        </Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        style={[
-                          styles.changePass,
-                          {
-                            backgroundColor: "green",
-                            padding: 8,
-                            borderRadius: 12,
-                            marginLeft: 20,
-                            width: "45%",
-                          },
-                        ]}
-                        onPress={() => navigation.navigate("UserManagerScreen")}
-                      >
-                        <Text
-                          style={[
-                            styles.changePassText,
-                            { color: "#fff", textAlign: "center" },
-                          ]}
-                        >
-                          Quản lý người dùng
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-                  ) : (
-                    <View></View>
-                  )}
-                </View>
-              </View>
-              <View>
-                <Text style={styles.title}>XẾP HẠNG THÀNH VIÊN</Text>
-                <View style={{ padding: 10 }}>
-                  <Text style={styles.text}>
-                    Hạng hiện tại của bạn là:{" "}
-                    <Text style={{ fontWeight: "bold", color: "#48B600" }}>
-                      {rank}
-                    </Text>
-                  </Text>
-                </View>
-              </View>
               <Text style={styles.title}>LỊCH SỬ ĐẶT HÀNG</Text>
               {orderData.map((item, key) => {
                 return (
@@ -419,7 +345,7 @@ const ProfileScreen = ({ navigation, route }) => {
                     >
                       <Image
                         style={styles.historyImage}
-                        source={{ uri: item.productImage }}
+                        source={Images.hoahong}
                       ></Image>
                       <View style={{ marginLeft: 20 }}>
                         <Text style={styles.historyText}>
@@ -562,7 +488,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    // flex: 1,
     borderRadius: 50,
     marginHorizontal: 25,
     alignItems: "center",
@@ -596,7 +521,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 20,
     padding: 25,
-    // alignItems: "center",
     shadowColor: "#000",
     width: "90%",
     height: "50%",

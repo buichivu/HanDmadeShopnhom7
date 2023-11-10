@@ -6,6 +6,7 @@ import { CREATE_CART, GET_CART_WITH_PAGE } from "../../../API/api";
 import { formatNumberWithDot } from "../../../Utils/Utils";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import Toast from "react-native-toast-message";
+import Images from "../../themes/Images";
 const ProductDescription = ({ route, navigation }) => {
   const { id, img, price, productName, productDescription } = route.params;
   const [quantity, setQuantity] = useState(1);
@@ -86,7 +87,7 @@ const ProductDescription = ({ route, navigation }) => {
       </View>
       <ScrollView>
         <View style={styles.imageBox}>
-          <Image style={styles.image} source={{ uri: img }}></Image>
+          <Image style={styles.image} source={Images.hoahong}></Image>
         </View>
         <View style={styles.productDetail}>
           <Text style={styles.productName}>{productName}</Text>

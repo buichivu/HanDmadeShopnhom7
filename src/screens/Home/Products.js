@@ -9,10 +9,9 @@ import {
 import React, { useState, useEffect } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import axios from "axios";
-import HeaderScreen from "./HeaderScreen";
 import { GET_ALL_PRODUCT } from "../../../API/api";
 import { formatNumberWithDot } from "../../../Utils/Utils";
-import { Ionicons, AntDesign } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import Loading from "../Loading/Loading";
 import Images from "../../themes/Images";
 
@@ -20,7 +19,6 @@ const Products = ({ navigation }) => {
   const [keyword, setKeyword] = useState([]);
   const [productData, setProductData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [filterValue, setFilterValue] = useState();
   useEffect(() => {
     axios
       .get(GET_ALL_PRODUCT)
@@ -90,10 +88,7 @@ const Products = ({ navigation }) => {
                     style={styles.element}
                   >
                     <View>
-                      <Image
-                        style={styles.image}
-                        source={{ uri: item.productImage }}
-                      />
+                      <Image style={styles.image} source={Images.hoahong} />
                       <Text style={styles.price}>
                         {formatNumberWithDot(item.price)}
                       </Text>

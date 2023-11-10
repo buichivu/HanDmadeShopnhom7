@@ -15,6 +15,7 @@ import axios from "axios";
 import { DELETE_ITEM, GET_CART_WITH_PAGE } from "../../../API/api";
 import { formatNumberWithDot } from "../../../Utils/Utils";
 import Loading from "../Loading/Loading";
+import Images from "../../themes/Images";
 
 const CartScreen = ({ navigation }) => {
   const [cartData, setCartData] = useState([]);
@@ -122,10 +123,7 @@ const CartScreen = ({ navigation }) => {
               return (
                 <View style={styles.cartBox}>
                   <View style={styles.cartImg}>
-                    <Image
-                      style={styles.img}
-                      source={{ uri: item.productImage }}
-                    ></Image>
+                    <Image style={styles.img} source={Images.hoahong}></Image>
                   </View>
                   <View style={styles.cartDescription}>
                     <Text style={styles.productName}>{item.productName}</Text>
@@ -227,7 +225,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFCC33",
     height: 100,
     justifyContent: "center",
-    // alignItems: "center",
   },
   search: {
     flexDirection: "row",
@@ -278,7 +275,6 @@ const styles = StyleSheet.create({
   quantityItem: {
     fontSize: 20,
     fontWeight: "bold",
-    // padding: 10
   },
   deleteCart: {
     justifyContent: "center",

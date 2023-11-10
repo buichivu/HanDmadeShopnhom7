@@ -83,10 +83,7 @@ const SearchResult = ({ route, navigation }) => {
                     style={styles.element}
                   >
                     <View>
-                      <Image
-                        style={styles.image}
-                        source={{ uri: item.productImage }}
-                      />
+                      <Image style={styles.image} source={Images.hoahong} />
                       <Text style={styles.price}>
                         {formatNumberWithDot(item.price)}
                       </Text>
@@ -128,7 +125,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "500",
   },
-  // Advertisement
   outstanding: {
     padding: 10,
     height: 210,
@@ -141,7 +137,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 
-  // Types
   types: {
     height: 120,
     width: "100%",
@@ -154,7 +149,6 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 20,
   },
-  // Collection
   collection: {
     width: "100%",
   },
@@ -164,7 +158,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
   },
-  // Product
   product: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -175,7 +168,6 @@ const styles = StyleSheet.create({
     height: 150,
     width: "48%",
     backgroundColor: "#fff",
-    // alignItems: "center",
     marginTop: 10,
     borderRadius: 10,
   },

@@ -13,8 +13,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import axios from "axios";
 import { CREATE_ORDER, DELETE_ALL_ITEM } from "../../../API/api";
 import { formatNumberWithDot } from "../../../Utils/Utils";
+import Images from "../../themes/Images";
 
-// Ghi chú: totalPrice: Giá sản phẩm, totalPriceFinal: Tiền khách phải trả(giá+ship-giảm giá)
 const PayScreen = ({ route, navigation }) => {
   const order = () => {
     cartData.map((product) => {
@@ -65,8 +65,6 @@ const PayScreen = ({ route, navigation }) => {
   const [discountText, setDiscountText] = useState("");
   const [bcN, setBcN] = useState("");
   const [bcF, setBcF] = useState("");
-  const [bcN2, setBcN2] = useState("");
-  const [bcF2, setBcF2] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
@@ -75,7 +73,7 @@ const PayScreen = ({ route, navigation }) => {
   }, [discount, checkDeliPrice]);
   const handleDiscount = () => {
     if (discountText != "") {
-      if (discountText == "FRIEND") {
+      if (discountText == "ABCXYZ") {
         setDiscount(10000);
       } else {
         setDiscount(0);
@@ -99,7 +97,6 @@ const PayScreen = ({ route, navigation }) => {
       </View>
       <ScrollView>
         <View style={styles.payContent}>
-          {/* Thông tin người đặt */}
           <Text style={styles.infoHeader}>THÔNG TIN KHÁCH HÀNG</Text>
           <View style={styles.address}>
             <Text style={styles.label}>Họ và tên người nhận *</Text>
@@ -130,16 +127,12 @@ const PayScreen = ({ route, navigation }) => {
               placeholder="Địa chỉ giao hàng..."
             ></TextInput>
           </View>
-          {/* Thông tin sản phẩm */}
           <Text style={styles.infoHeader}>THÔNG TIN SẢN PHẨM</Text>
           {cartData.map((product) => {
             return (
               <View style={styles.productPart}>
                 <View style={styles.cartImg}>
-                  <Image
-                    style={styles.img}
-                    source={{ uri: product.productImage }}
-                  ></Image>
+                  <Image style={styles.img} source={Images.hoahong}></Image>
                 </View>
                 <View style={styles.cartDescription}>
                   <Text style={styles.productName}>{product.productName}</Text>
@@ -154,12 +147,11 @@ const PayScreen = ({ route, navigation }) => {
               </View>
             );
           })}
-          {/* Phương thức vận chuyển */}
           <Text style={styles.infoHeader}>PHƯƠNG THỨC VẬN CHUYỂN</Text>
           <View style={styles.delivery}>
             <TouchableOpacity
               onPress={() => {
-                setCheckDeliPrice(30000), setBcN("#48B600") + setBcF("#fff");
+                setCheckDeliPrice(0), setBcN("black") + setBcF("#fff");
               }}
               style={{ marginBottom: 10 }}
             >
@@ -179,7 +171,7 @@ const PayScreen = ({ route, navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                setCheckDeliPrice(35000), setBcF("#48B600"), setBcN("#fff");
+                setCheckDeliPrice(0), setBcF("black"), setBcN("#fff");
               }}
             >
               <View style={styles.checkDelivery}>
@@ -193,56 +185,11 @@ const PayScreen = ({ route, navigation }) => {
                     borderColor: bcF,
                   }}
                 ></View>
-                <Text style={{ marginLeft: 40 }}>Vận chuyển hỏa tốc</Text>
+                <Text style={{ marginLeft: 40 }}>Vận chuyển phát nhanh</Text>
               </View>
             </TouchableOpacity>
           </View>
-          {/* Phương thức thanh toán */}
-          <Text style={styles.infoHeader}>PHƯƠNG THỨC THANH TOÁN</Text>
-          <View style={styles.delivery}>
-            <TouchableOpacity
-              style={{ marginBottom: 10 }}
-              onPress={() => {
-                setBcF2("#fff");
-                setBcN2("#48B600");
-              }}
-            >
-              <View style={styles.checkDelivery}>
-                <View
-                  style={{
-                    width: 20,
-                    height: 20,
-                    borderWidth: 1,
-                    backgroundColor: bcN2,
-                    borderRadius: 10,
-                    borderColor: bcN2,
-                  }}
-                ></View>
-                <Text style={{ marginLeft: 40 }}>Thanh toán bằng thẻ</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setBcN2("#fff");
-                setBcF2("#48B600");
-              }}
-            >
-              <View style={styles.checkDelivery}>
-                <View
-                  style={{
-                    width: 20,
-                    height: 20,
-                    borderWidth: 1,
-                    backgroundColor: bcF2,
-                    borderRadius: 10,
-                    borderColor: bcF2,
-                  }}
-                ></View>
-                <Text style={{ marginLeft: 40 }}>Thanh toán khi nhận hàng</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          {/* Nhập mã giảm giá */}
+
           <Text style={styles.infoHeader}>MÃ GIẢM GIÁ</Text>
 
           <View style={styles.discount}>
@@ -277,7 +224,6 @@ const PayScreen = ({ route, navigation }) => {
               </View>
             </View>
           </View>
-          {/* Tính tiền */}
           <Text style={styles.infoHeader}>TỔNG TIỀN</Text>
           <View style={styles.total}>
             <View style={styles.row}>

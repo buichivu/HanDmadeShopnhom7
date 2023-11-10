@@ -7,9 +7,7 @@ import {
   Alert,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { Ionicons, AntDesign } from "@expo/vector-icons";
-import { useEffect } from "react";
-import axios from "axios";
+import { AntDesign } from "@expo/vector-icons";
 import React, { useState } from "react";
 
 const HeaderScreen = ({ navigation }) => {
@@ -37,8 +35,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#48B600",
     height: 120,
-    // justifyContent: "center",
-    // alignItems: "center",
   },
   search: {
     flexDirection: "row",

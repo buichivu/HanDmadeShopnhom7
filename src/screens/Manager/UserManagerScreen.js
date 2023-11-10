@@ -8,8 +8,6 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { ScrollView } from "react-native-gesture-handler";
-import { AntDesign } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
 import axios from "axios";
 import { GET_ALL_USER } from "../../../API/api";
 import { formatNumberWithDot } from "../../../Utils/Utils";
@@ -148,8 +146,6 @@ const styles = StyleSheet.create({
   },
   quantityItem: {
     fontSize: 16,
-    //   fontWeight: "bold",
-    // padding: 10
   },
   deleteCart: {
     justifyContent: "center",

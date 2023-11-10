@@ -1,7 +1,9 @@
 export default {
   user_name: require("../assets/Images/UsernameIcon.png"),
   password: require("../assets/Images/PasswordIcon.png"),
+  hoahong: require("../assets/Images/hoahonggiay.jpg"),
   img_signup: require("../assets/Images/img_signup.png"),
+  img_splash: require("../assets/Images/splash.jpg"),
   img_categories: require("../assets/Images/hoa_01.jpg"),
   categories_accessories: require("../assets/Images/categories_accessories.png"),
   categories_bottom: require("../assets/Images/lohoa_01.jpg"),

@@ -8,10 +8,8 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { ScrollView } from "react-native-gesture-handler";
-import { AntDesign } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
 import axios from "axios";
-import { GET_ALL_ORDER, GET_CART_WITH_PAGE } from "../../../API/api";
+import { GET_ALL_ORDER } from "../../../API/api";
 import { formatNumberWithDot } from "../../../Utils/Utils";
 import Loading from "../Loading/Loading";
 const OrderManagerScreen = ({ navigation }) => {
